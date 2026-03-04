@@ -24,4 +24,10 @@ class ContactoController extends Controller
 
         return 'Formulario Recibido';
     }
+
+    public function listaContactos()
+    {
+        $contactos - Contacto::all();
+        return view('lista-contactos', compact('contactos'));
+    }
 }
