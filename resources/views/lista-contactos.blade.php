@@ -10,7 +10,9 @@
     <ul>
         @foreach ($contactos as $contacto )
         <li>
-            
+            <strong>Nombre:</strong> {{ $contacto->nombre }} | 
+            <strong>Correo:</strong> {{ $contacto->correo }} | 
+            <strong>Mensaje:</strong> {{ $contacto->mensaje }}
         </li>
         @endforeach
     </ul>
