@@ -10,7 +10,8 @@ Route::get('hola-mundo', function() {
     return view('hola');
 });
 
-Route::get('contacto', [ContactoController::class, 'contacto']);
-Route::post('recibe-form', [ContactoController::class, 'recibeForm']);
-Route::get('/lista-contactos', [ContactoController::class, 'listaContactos']);
+Route::get('/contactos/create', [ContactoController::class, 'create'])->name('contactos.create');
+Route::post('/contactos', [ContactoController::class, 'store'])->name('contactos.store');
+Route::get('/contactos/{contacto}', [ContactoController::class, 'show']);
+Route::get('/contactos', [ContactoController::class, 'index'])->name('contactos.index');
 

@@ -1,17 +1,32 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers;  
 use App\Models\Contacto;
 use Illuminate\Http\Request;
 
 class ContactoController extends Controller
 {
-    public function contacto()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        return view('contacto');
+        $contactos = Contacto::all();
+        return view('lista_contactos_index', compact('contactos'));
     }
 
-    public function recibeForm(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('contacto_create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
         $request->validate([
              'nombre'  => 'required|min:3',
@@ -25,13 +40,38 @@ class ContactoController extends Controller
         $contacto->mensaje = $request->mensaje;
         $contacto->save();
 
-        return redirect()->back();
+        return redirect()->route('contactos.create')->with('info', '¡Formulario Recibido!');
     }
 
-    public function listaContactos()
+    /**
+     * Display the specified resource.
+     */
+    public function show(Contacto $contacto)
     {
-        $contactos = Contacto::all();
-        return view('lista-contactos', ['contactos' => $contactos]);
+        return view('contacto_show', compact('contacto'));
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Contacto $contacto)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Contacto $contacto)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Contacto $contacto)
+    {
+        //
+    }
 }

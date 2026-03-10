@@ -8,8 +8,14 @@
 <body>
     <h1>Formulario de Contacto</h1>
 
+    @if (session('info'))
+    <div style="background-color: #4caf50; color: white; padding: 10px; border-radius: 5px; margin-bottom: 20px; font-family: sans-serif;">
+        {{ session('info') }}
+    </div>
+    @endif
 
-    <form action="recibe-form" method="POST">
+
+    <form action="{{ route('contactos.store') }}" method="POST">
         @csrf
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}">
