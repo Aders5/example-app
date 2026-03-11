@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>Formulario de Contacto</h1>
+    <p>
+        <a href ="{{ route('contactos.index') }}">Volver a index</a>
+    </p>
 
     @if (session('info'))
     <div style="background-color: #4caf50; color: white; padding: 10px; border-radius: 5px; margin-bottom: 20px; font-family: sans-serif;">

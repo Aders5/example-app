@@ -7,12 +7,13 @@
 </head>
 <body>
     <h1>Lista de Contactos</h1>
+    <p>
+        <a href ="{{ route('contactos.create') }}">Añadir un nuevo contacto </a>
+    </p>
     <ul>
         @foreach ($contactos as $contacto )
         <li>
-            <strong>Nombre:</strong> {{ $contacto->nombre }} | 
-            <strong>Correo:</strong> {{ $contacto->correo }} | 
-            <strong>Mensaje:</strong> {{ $contacto->mensaje }}
+            Nombre: <a href="{{ route('contactos.show', $contacto) }}">{{ $contacto->nombre }}</a> |Correo: {{ $contacto->correo }} |Mensaje: {{ $contacto->mensaje }}
         </li>
         @endforeach
     </ul>
