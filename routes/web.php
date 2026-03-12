@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\OfertaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,4 +12,6 @@ Route::get('hola-mundo', function() {
 });
 
 Route::resource('contactos', ContactoController::class);
+Route::resource('ofertas', ContactoController::class);
+
 
